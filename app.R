@@ -101,8 +101,7 @@ server <- function(input, output) {
 #---Transform SPDF into data frame---------------------------------------------------------------------
   list_masked_df <- lapply(list_masked_spdf, function (c) {as.data.frame(c)})
   
-#---Delete column for the year 2000 because that year is the baseline----------------------------------
-  # area under 2000 has original pixel of 0 which means no tree cover loss
+#---Delete column for the year 0 because that year is the baseline----------------------------------
   list_masked_df <- lapply(list_masked_df, function(e) {e[e$Dayun_TCL2020>0,]})
   
 #----Changing colnames inside list of data frame-------------------------------------------------------
