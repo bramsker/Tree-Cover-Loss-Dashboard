@@ -3,7 +3,7 @@
 
 # install and load packages
 pck <- c("shiny","shinydashboard","rgdal","ggplot2","raster","viridis","ggthemes","rasterVis","dplyr","reshape2","leaflet")
-new_pck <- pck[!pck %in% installed.packages()[,"Package"]] # checking which library that doesn't exist
+new_pck <- pck[!pck %in% installed.packages()[,"Package"]] # checking which library that isn't installed yet
 if(length(new_pck)){install.packages(new_pck)}             # install library that doesn't exist
 sapply(pck, require, character.only = T)                   # load the library
 
@@ -67,8 +67,12 @@ ui <- dashboardPage(
 #-----------------------------------------------------------------------------------------------------
 server <- function(input, output) {
 #----Loading dataset----------------------------------------------------------------------------------
+  # raster and vector data must be at the same CRS. It would be easier for using UTM because we know 
+  # that at the end, raster calculation will be in meter square
+  # I gave an example of vector/shapefiles data to show its attribute table information
+#-----------------------------------------------------------------------------------------------------
   # raster
-  r_dayun <- raster("/Users/bramudya/Documents/R/Calculating pixels inside polygons/raster/Dayun_TCL2020.tif")
+  r_dayun <- raster("YOUR TIFF FILE.tif")
   # vector
   p_dayun <- readOGR("/Users/bramudya/Documents/R/Calculating pixels inside polygons/shp/DayunII.shp")
   # years
@@ -108,11 +112,11 @@ server <- function(input, output) {
 #---Changing the year column---------------------------------------------------------------------------
   list_masked_df <- lapply(list_masked_df, function(d) {cbind(d[1]+2000, d[-1])})
 
-  
 #----Calculate loss area based on pixel size and value each zone---------------------------------------
-  list_lossarea <- lapply(list_masked, function(f) {data.frame(tapply(area(f), f[], sum))})
   # the result in this calculation is in metre square because both vector and raster is is using UTM
   # projection
+#------------------------------------------------------------------------------------------------------
+  list_lossarea <- lapply(list_masked, function(f) {data.frame(tapply(area(f), f[], sum))})
   
 #----Calculate the loss into Ha and round it-----------------------------------------------------------
   list_lossarea <- lapply(list_lossarea, function (g) {data.frame(round(g/10000, 2))})
@@ -121,8 +125,10 @@ server <- function(input, output) {
   pal = colorNumeric(c("blue","green","yellow","orange","red"), values(masked_dayun), 
                      na.color = "transparent")
   
-#----Adding a row in Zone 3 since there is no data at Row 3--------------------------------------------
+#----Adding a row in Zone 3 since there is no data at 3rd row------------------------------------------
   # skipping this step will result failure in making combined_loss data 
+  # missing data at row 3 means there is no loss in 2003
+  # different location may result different no data
 #------------------------------------------------------------------------------------------------------
   # create a function of row addition
   insertRow <- function(existingDF, newrow, r) {
