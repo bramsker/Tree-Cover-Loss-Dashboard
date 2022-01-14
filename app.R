@@ -1,4 +1,4 @@
-# Script by: Bramudya Rifki Mukti
+# Thank you to all R communities. This script wouldn't have existed without them
 #---------------------------------------------------------------------------------------
 
 # install and load packages
