@@ -10,6 +10,13 @@ library(dplyr)
 library(reshape2)
 library(leaflet)
 
+# install and load packages
+
+pck <- c("shiny","shinydashboard","rgdal","ggplot2","raster","viridis","ggthemes","rasterVis","dplyr","reshape2","leaflet")
+new_pck <- pck[!pck %in% installed.packages()[,"Package"]] # checking which packages that doesn't exist
+if(length(new_pck)){install.packages(new_pck)}             # install package that doesn't exist
+sapply(pck, require, character.only = T)                   # load the packages
+
 #----User interface---------------------------------------------------------------------
 # header
 header <- dashboardHeader(
