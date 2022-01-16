@@ -74,7 +74,7 @@ server <- function(input, output) {
   # raster
   r_dayun <- raster("YOUR TIFF FILE.tif")
   # vector
-  p_dayun <- readOGR("/Users/bramudya/Documents/R/Calculating pixels inside polygons/shp/DayunII.shp")
+  p_dayun <- readOGR("Vector_Data.shp")
   # years
   Year <- as.character(c(seq(2000,2020, 1)))
   # list of polygons from vector
