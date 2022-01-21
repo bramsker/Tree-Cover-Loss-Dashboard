@@ -1,5 +1,7 @@
 # Tree-Cover-Loss-Dashboard
 
+# tes
+
 This project aims to develop an interactive dashboard which shows annual tree cover loss (2001 - 2020) from Hansen's data inside a specific region. The tree cover loss is a raster which has a spatial resolution of 30 m x 30 m (visit: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2020-v1.8/download.html). While, the region (Dayun) is a vector data comprised of polygons. The vector is divided arbitrary into some polygons (zone 1, zone 2, zone 3) just for the purpose of this project.
 
 The algorithm will generate total loss inside specific region and display it in an interactive dashboard. User is able choose the map for every zone, see the trend, and download the raw data. The script will dramatically decrease time consumption and provide flexible overview compare to manual work using GIS software. In the GIS, user needs to clip/mask the raster within the polygon  -> change raster to polygon -> dissolve area based on year -> add field of total area calculation in Ha -> calculate the area in Ha -> layout the map. 
