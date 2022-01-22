@@ -22,6 +22,6 @@ User is able to download, generate a map, and visualize a trend of how much tree
 This dashboard will dramatically speed up the process all the way from GIS data processing to layouting. The GIS steps covered by this script are; clip/mask the raster within the polygon (clipping) -> change raster to polygon (raster to polygon) -> dissolve area based on year (dissolved) -> add field of total area calculation in Ha (add field) -> calculate the area in Ha (calculate geometry) -> layout the map.
 
 # Recommendation
-The reason of using R Shiny is because of data confidentiality. It might be more practical using a cloud-based platform such as google earth engine. Google earth engine is able to handle front-end and backend processes for spatial data analysis, however, user needs to upload files required for analysis into the cloud. For a company which has strict IT Policies, such method would not be possible. In R Shiny, all the process done in your own computer and the dashboard is generated in a localhost.
+There are two reasons why using R Shiny: first, because of data confidentiality and second, because it can handle full stack development pretty well. It might be more practical using a cloud-based platform for handling spatial data analysis such as google earth engine. However, user needs to upload internal files required for analysis. For a company which has strict IT Policies, such method would not be possible. In R Shiny, all the process done in your own computer and the dashboard is generated in a localhost.
 
   
