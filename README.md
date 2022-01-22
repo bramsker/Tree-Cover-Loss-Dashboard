@@ -19,7 +19,7 @@ The other lines of script are for creating user interface and map plotting purpo
 User is able to download, generate a map, and visualize a trend of how much tree loss per year for any region
 
 # Benefits
-This dashboard will dramatically speed up the process all the way from GIS data processing to layouting. The GIS steps covered by this script are; clip/mask the raster within the polygon (clipping) -> change raster to polygon (raster to polygon) -> dissolve area based on year (dissolved) -> add field of total area calculation in Ha (add field) -> calculate the area in Ha (calculate geometry) -> layout the map.
+This dashboard will dramatically speed up the process of manual GIS data processing. GIS steps covered by this script are; clip/mask the raster within the polygon (clipping) -> change raster to polygon (raster to polygon) -> dissolve area based on year (dissolved) -> add field of total area calculation in Ha (add field) -> calculate the area in Ha (calculate geometry) -> layout the map.
 
 # Recommendation
 There are two reasons why using R Shiny: first, because of data confidentiality and second, because it can handle full stack development pretty well. It might be more practical using a cloud-based platform for handling spatial data analysis such as google earth engine. However, user needs to upload internal files required for analysis. For a company which has strict IT Policies, such method would not be possible. In R Shiny, all the process done in your own computer and the dashboard is generated in a localhost.
