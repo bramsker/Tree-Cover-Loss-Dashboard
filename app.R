@@ -120,10 +120,6 @@ server <- function(input, output) {
   
 #----Calculate the loss into Ha and round it-----------------------------------------------------------
   list_lossarea <- lapply(list_lossarea, function (g) {data.frame(round(g/10000, 2))})
-
-#----Color palete for leaflet map----------------------------------------------------------------------
-  pal = colorNumeric(c("blue","green","yellow","orange","red"), values(masked_dayun), 
-                     na.color = "transparent")
   
 #----Adding a row in Zone 3 since there is no data at 3rd row------------------------------------------
   # skipping this step will result failure in making combined_loss data 
@@ -146,6 +142,10 @@ server <- function(input, output) {
 #----Combine data frame of all loss zones
   combined_loss <- cbind(Year, list_lossarea$All, list_lossarea$Zone1, list_lossarea$Zone2, z3)
   colnames(combined_loss) <- c("Year", "All Zones", "Zone 1", "Zone 2", "Zone 3")
+  
+#----Color palete for leaflet map----------------------------------------------------------------------
+  pal = colorNumeric(c("blue","green","yellow","orange","red"), values(masked_dayun), 
+                     na.color = "transparent")
   
 #----Rendering----------------------------------------------------------------------------------------
   # draw zone selection
