@@ -1,7 +1,7 @@
 # Project Name: Tree-Cover-Loss-Dashboard
 
 # Objective
-This project aims to develop an interactive dashboard which shows annual tree cover loss (2001 - 2020) in specific region.
+This project aims to develop an interactive dashboard which shows annual tree cover loss (2001 - 2020) from a specific region.
 
 # Data Type
 There are two dataset used in this dashboard, one raster data and one vector polygon data. The tree cover loss is a raster which has a spatial resolution of 30 m x 30 m. For more information visit: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2020-v1.8/download.html. While, the region (Dayun) is a vector data comprised of three polygons.
