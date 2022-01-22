@@ -7,7 +7,7 @@ This project aims to develop an interactive dashboard which shows annual tree co
 There are two dataset used in this dashboard, one raster data and one polygon vector data. The tree cover loss is a raster which has a spatial resolution of 30 m x 30 m. For more information visit: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2020-v1.8/download.html. While, the region (Dayun) is a vector data comprised of three polygons.
 
 # Methodology
-The algorithm will read raster and vector data in UTM format. User needs to define which attribute column for splitting vector polygons. The algorithm will generate total loss inside polygons. However, user needs to check whether there is no data (no tree loss) from any year and modify the table accordingly.
+The algorithm will read raster and vector data in UTM format. Firstly, it will crop the raster inside the vector. Then, it will crop the raster based on polygons feature that user needs to define based on which column. Firstly, the algorithm will generate total loss inside polygons. However, user needs to check whether there is no data (no tree loss) from any year and modify the table accordingly.
 
 # Challenges
 1. The map will pop-up very slow if the polygons are huge
